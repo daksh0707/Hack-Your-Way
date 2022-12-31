@@ -1,20 +1,20 @@
 # HackYourWay
 This Project's aim is to create an API that will let users enter a few details and receieve their entire family Tree. 
 We take in data such as name, DoB, state, district and can then query all electoral poll website. 
-This provides us complete electoral pdf data which we then scrape to get meaningful data. We do basic operations on this data to build that persons family tree.
+This provides complete electoral pdf data which is then scraped to get meaningful data. Basic operations are done on this data to build that persons family tree.
 
 
 Process- 
 after accepting responses from users, a call is made to our hosted AWS server. This server then collects AC number, PN number and district code etc from "electoralsearch.in"
 
-Using this data we can then query the individual state website of the person. Captchas are encountered, so we have created a system that reads the image and converts it to text using google vision API. The results are fed into the captch and we bypass it.
+Using this data we can then query the individual state website of the person. Captchas are encountered, so we have created a system that reads the image and converts it to text using google vision API. The results are fed into the captch and it is bypassed.
 
-We enter the district and other data in the state website which gives us a pdf download link which we download onto the AWS server. 
+We enter the district and other data in the state website which gives a pdf download link which we download onto the AWS server. 
 
 This server then sends this pdf to google cloud vision API which does some processing. 
 The cloud accepts the pdf, detects the language and transcribes it into searchable data. 
-After that we use this data to send it to Google translate API which returns translated data. 
-This data is raw and we use proprietary string manipulation to make into queriable data. From this data a family tree is constructed and returned.
+After that this data is used to send it to Google translate API which returns translated data. 
+This data is raw and proprietary string manipulation is used to make into queriable data. From this data a family tree is constructed and returned.
 
 
 
